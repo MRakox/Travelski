@@ -1,0 +1,8 @@
+{
+    "apiUrl": "https://api.travelski.com/se/planning/availabilities/",
+    "email": {
+        "user": "your-email@gmail.com",
+        "password": "your-email-password",
+        "recipient": "recipient-email@example.com"
+    }
+}

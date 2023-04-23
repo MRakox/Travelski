@@ -4,5 +4,10 @@
   "description": "Check the availability of accommodation on the Travelski website every day and send an email when it is updated",
   "main": "index.js",
   "author": "Rakox <rakoxwastaken@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.3.6",
+    "common-tags": "^1.8.2",
+    "nodemailer": "^6.9.1"
+  }
 }
