@@ -1,0 +1,8 @@
+{
+  "name": "travel-ski",
+  "version": "1.0.0",
+  "description": "Check the availability of accommodation on the Travelski website every day and send an email when it is updated",
+  "main": "index.js",
+  "author": "Rakox <rakoxwastaken@gmail.com>",
+  "license": "MIT"
+}
