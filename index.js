@@ -27,12 +27,14 @@ let lastResourcesState = [];
 try {
   const data = fs.readFileSync("resources-state.json");
   lastResourcesState = JSON.parse(data);
+  console.log("Last known state loaded successfully.");
 } catch (error) {
   console.error("Failed to load last resources state:", error);
 }
 
 // Function to check for new or updated resources
 async function checkResources() {
+  console.log("Checking for new or updated resources...");
   try {
     const response = await axios.get(config.apiUrl, { headers });
     const resources = response.data.prestations;
@@ -64,6 +66,7 @@ async function checkResources() {
             Page du produit: https://www.travelski.com${resource.productPageUrl}`,
         };
         await transporter.sendMail(mailOptions);
+        console.log(`Email sent for resource ${resource.prestName}.`);
       }
     }
 
@@ -75,6 +78,7 @@ async function checkResources() {
       "resources-state.json",
       JSON.stringify(lastResourcesState)
     );
+    console.log("Last known state saved to file.");
   } catch (error) {
     console.error(error);
   }
@@ -82,4 +86,5 @@ async function checkResources() {
 
 // Check for new or updated resources every 12 hours
 setInterval(checkResources, 12 * 60 * 60 * 1000);
+console.log("Resource check started.");
 checkResources();
