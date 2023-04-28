@@ -18,6 +18,12 @@ const transporter = nodemailer.createTransport({
 // Set up headers
 const headers = {
   "Accept-Language": "fr-FR",
+  "User-Agent":
+    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0",
+  Accept: "*/*",
+  "Accept-Encoding": "gzip, deflate, br",
+  Origin: "https://www.travelski.com",
+  Referer: "https://www.travelski.com/",
 };
 
 // Store the last known state of the resources
