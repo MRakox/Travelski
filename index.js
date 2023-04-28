@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { stripIndents } = require("common-tags");
+const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 
@@ -44,6 +45,7 @@ async function checkResources() {
   try {
     const response = await axios.get(config.apiUrl, { headers });
     const resources = response.data.prestations;
+    console.log(`Found ${resources.length} prestations on Travelski`);
 
     // Compare the current state of the resources to the last known state
     for (const resource of resources) {
@@ -90,7 +92,6 @@ async function checkResources() {
   }
 }
 
-// Check for new or updated resources every 12 hours
-setInterval(checkResources, 12 * 60 * 60 * 1000);
+// Check for new or updated resources every 2 hours
+cron.schedule("0 */2 * * *", checkResources);
 console.log("Resource check started.");
-checkResources();
